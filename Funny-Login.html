@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, th, td {
+  border:1px black;
+  border-collapse: collapse;
+}
+</style>
+    <title>Twitter</title>
+    <style>
+        section{
+        margin:20px 0;
+        }
+        #tb1,.td1{
+            border: 1px solid rgb(177, 177, 177);
+            border-collapse: collapse;
+        }
+        #tb1{
+            border-radius: 10px;  
+            margin: auto;
+            width: 40%;
+            height: 300px;
+        }
+        input[type=submit]{
+            background-color: rgb(64, 64, 247);
+            border: none;
+            padding: 7px 10px;
+            color: white;
+            border-radius: 3px;
+            margin-bottom: 10px;
+        }
+        .tb2 tr{
+          padding-bottom: 10px;
+        }
+        label{
+            padding-left: 60px;
+            height: 20px;
+        }
+        input:not(input[type=submit]){
+            width: 200px;
+            height: 20px;
+            margin: 9px 0;
+        }
+        span{
+        color:red;
+        }
+    </style>
+</head>
+<body>
+    <div class="form">
+    <form action="" >
+            <table class="tb2">
+            <tr>
+                <td><label for="">Login Email:<span>*</span></label></td>
+                <td><input type="email" placeholder="Enter l'Email"/></td>
+            </tr>
+            <tr>
+                <td><label for="">Password<span>*</span></label></td>
+                <td><input type="password" class="password" id="password" onkeyup="checklength(this.value)" /></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" class="btn" value="submit"/>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<script>
+    var btn = document.querySelector(".btn");
+    var comp_pass = document.querySelector(".password");
+    var pass = document.getElementById("password");
+    var position;
+    
+    function a(){
+        position ? (position = 0) : (position = 150);
+        btn.style.transform = `translate(${position}px,0px)`;
+        btn.style.transition = "all 0.3s ease";
+    }
+
+    function checklength(password){
+        if (password.length >= 5) {
+        
+            btn.removeEventListener("mouseover", a);
+            
+            return;
+        } else {
+           
+            
+            btn.addEventListener("mouseover", a)
+        }
+    }
+</script>
+</body>
+</html>
